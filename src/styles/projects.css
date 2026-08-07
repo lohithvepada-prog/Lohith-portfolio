@@ -1,0 +1,33 @@
+.projects {
+  padding: 80px;
+  text-align: center;
+}
+
+.project-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.project-card {
+  width: 260px;
+  padding: 20px;
+  background: #1f2937;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+}
+
+.project-card h3 {
+  color: #0ea5e9;
+  margin-bottom: 10px;
+}
+
+.project-card p {
+  color: #ddd;
+}
