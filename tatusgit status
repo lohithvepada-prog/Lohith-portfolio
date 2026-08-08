@@ -1,0 +1,189 @@
+warning: in the working copy of 'package-lock.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'package.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/About.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/Contact.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/Footer.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/Hero.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/Navbar.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/Projects.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/Skills.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/index.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/styles/about.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/styles/contact.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/styles/footer.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/styles/hero.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/styles/navbar.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/styles/projects.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/styles/skills.css', LF will be replaced by CRLF the next time Git touches it
+[1mdiff --git a/package-lock.json b/package-lock.json[m
+[1mindex bfca1cf..4f14ee5 100644[m
+[1m--- a/package-lock.json[m
+[1m+++ b/package-lock.json[m
+[36m@@ -8,6 +8,7 @@[m
+       "name": "frontend",[m
+       "version": "0.0.0",[m
+       "dependencies": {[m
+[32m+[m[32m        "@emailjs/browser": "^4.4.1",[m
+         "react": "^19.2.8",[m
+         "react-dom": "^19.2.8"[m
+       },[m
+[36m@@ -19,6 +20,15 @@[m
+         "vite": "^8.2.0"[m
+       }[m
+     },[m
+[32m+[m[32m    "node_modules/@emailjs/browser": {[m
+[32m+[m[32m      "version": "4.4.1",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/@emailjs/browser/-/browser-4.4.1.tgz",[m
+[32m+[m[32m      "integrity": "sha512-DGSlP9sPvyFba3to2A50kDtZ+pXVp/0rhmqs2LmbMS3I5J8FSOgLwzY2Xb4qfKlOVHh29EAutLYwe5yuEZmEFg==",[m
+[32m+[m[32m      "license": "BSD-3-Clause",[m
+[32m+[m[32m      "engines": {[m
+[32m+[m[32m        "node": ">=14.0.0"[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+     "node_modules/@oxc-project/types": {[m
+       "version": "0.143.0",[m
+       "resolved": "https://registry.npmjs.org/@oxc-project/types/-/types-0.143.0.tgz",[m
+[1mdiff --git a/package.json b/package.json[m
+[1mindex 9e69166..0bb87a0 100644[m
+[1m--- a/package.json[m
+[1m+++ b/package.json[m
+[36m@@ -10,6 +10,7 @@[m
+     "preview": "vite preview"[m
+   },[m
+   "dependencies": {[m
+[32m+[m[32m    "@emailjs/browser": "^4.4.1",[m
+     "react": "^19.2.8",[m
+     "react-dom": "^19.2.8"[m
+   },[m
+[1mdiff --git a/src/components/About.jsx b/src/components/About.jsx[m
+[1mindex 1e696aa..e2010d7 100644[m
+[1m--- a/src/components/About.jsx[m
+[1m+++ b/src/components/About.jsx[m
+[36m@@ -2,7 +2,7 @@[m [mimport "../styles/about.css";[m
+ [m
+ function About() {[m
+   return ([m
+[31m-    <section className="about">[m
+[32m+[m[32m    <section className="about" id="about">[m
+       <h2>About Me</h2>[m
+ [m
+       <p>[m
+[1mdiff --git a/src/components/Contact.jsx b/src/components/Contact.jsx[m
+[1mindex b3a9edf..254403b 100644[m
+[1m--- a/src/components/Contact.jsx[m
+[1m+++ b/src/components/Contact.jsx[m
+[36m@@ -1,15 +1,71 @@[m
+[32m+[m[32mimport emailjs from "@emailjs/browser";[m
+ import "../styles/contact.css";[m
+ [m
+[32m+[m[32memailjs.init({[m
+[32m+[m[32m  publicKey: "2yao-C_BEvDFG2IOr",[m
+[32m+[m[32m});[m
+[32m+[m
+ function Contact() {[m
+[32m+[m[32m  const handleSubmit = async (e) => {[m
+[32m+[m[32m    e.preventDefault();[m
+[32m+[m
+[32m+[m[32m    const form = e.target;[m
+[32m+[m
+[32m+[m[32m    const templateParams = {[m
+[32m+[m[32m      title: "Portfolio Contact",[m
+[32m+[m[32m      name: form.name.value,[m
+[32m+[m[32m      email: form.email.value,[m
+[32m+[m[32m      message: form.message.value,[m
+[32m+[m[32m      time: new Date().toLocaleString(),[m
+[32m+[m[32m    };[m
+[32m+[m
+[32m+[m[32m    try {[m
+[32m+[m[32m      const response = await emailjs.send([m
+[32m+[m[32m        "service_vener5g",[m
+[32m+[m[32m        "template_g2it9fo",[m
+[32m+[m[32m        templateParams[m
+[32m+[m[32m      );[m
+[32m+[m
+[32m+[m[32m      console.log("SUCCESS:", response.status, response.text);[m
+[32m+[m
+[32m+[m[32m      alert("Message sent successfully! 🚀");[m
+[32m+[m
+[32m+[m[32m      form.reset();[m
+[32m+[m[32m    } catch (error) {[m
+[32m+[m[32m      console.error("EmailJS Error:", error);[m
+[32m+[m[32m      console.error("Status:", error.status);[m
+[32m+[m[32m      console.error("Text:", error.text);[m
+[32m+[m
+[32m+[m[32m      alert("Failed to send message. Please try again.");[m
+[32m+[m[32m    }[m
+[32m+[m[32m  };[m
+[32m+[m
+   return ([m
+[31m-    <section className="contact">[m
+[32m+[m[32m    <section id="contact" className="contact-section">[m
+       <h2>Contact Me</h2>[m
+ [m
+[31m-      <form>[m
+[31m-        <input type="text" placeholder="Your Name" />[m
+[31m-        <input type="email" placeholder="Your Email" />[m
+[31m-        <textarea placeholder="Your Message"></textarea>[m
+[31m-        <button>Send Message</button>[m
+[32m+[m[32m      <form onSubmit={handleSubmit}>[m
+[32m+[m[32m        <input[m
+[32m+[m[32m          type="text"[m
+[32m+[m[32m          name="name"[m
+[32m+[m[32m          placeholder="Your Name"[m
+[32m+[m[32m          required[m
+[32m+[m[32m        />[m
+[32m+[m
+[32m+[m[32m        <input[m
+[32m+[m[32m          type="email"[m
+[32m+[m[32m          name="email"[m
+[32m+[m[32m          placeholder="Your Email"[m
+[32m+[m[32m          required[m
+[32m+[m[32m        />[m
+[32m+[m
+[32m+[m[32m        <textarea[m
+[32m+[m[32m          name="message"[m
+[32m+[m[32m          placeholder="Your Message"[m
+[32m+[m[32m          required[m
+[32m+[m[32m        ></textarea>[m
+[32m+[m
+[32m+[m[32m        <button type="submit">Send Message</button>[m
+       </form>[m
+     </section>[m
+   );[m
+[1mdiff --git a/src/components/Footer.jsx b/src/components/Footer.jsx[m
+[1mindex 78ee011..8b75e56 100644[m
+[1m--- a/src/components/Footer.jsx[m
+[1m+++ b/src/components/Footer.jsx[m
+[36m@@ -1,12 +1,13 @@[m
+ import "../styles/footer.css";[m
+ [m
+ function Footer() {[m
+[31m-  console.log("Footer Rendered");[m
+[31m-[m
+   return ([m
+     <footer className="footer">[m
+       <h3>Ghost Portfolio</h3>[m
+       <p>Full Stack Developer</p>[m
+[32m+[m[32m      <p className="copy">[m
+[32m+[m[32m        © 2026 Ghost Portfolio. All rights reserved.[m
+[32m+[m[32m      </p>[m
+     </footer>[m
+   );[m
+ }[m
+[1mdiff --git a/src/components/Hero.jsx b/src/components/Hero.jsx[m
+[1mindex 9df0fbd..a93688b 100644[m
+[1m--- a/src/components/Hero.jsx[m
+[1m+++ b/src/components/Hero.jsx[m
+[36m@@ -3,9 +3,10 @@[m [mimport hero from "../assets/hero.png";[m
+ [m
+ function Hero() {[m
+   return ([m
+[31m-    <section className="hero">[m
+[32m+[m[32m   <section className="hero" id="home">[m
+       <div className="hero-content">[m
+         <h1>Hi, I'm Ghost 👋</h1>[m
+[32m+[m
+         <h2>Full Stack Developer</h2>[m
+ [m
+         <p>[m
+[1mdiff --git a/src/components/Navbar.jsx b/src/components/Navbar

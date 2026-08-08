@@ -3,9 +3,10 @@ import hero from "../assets/hero.png";
 
 function Hero() {
   return (
-    <section className="hero">
+   <section className="hero" id="home">
       <div className="hero-content">
         <h1>Hi, I'm Ghost 👋</h1>
+
         <h2>Full Stack Developer</h2>
 
         <p>
