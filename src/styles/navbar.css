@@ -36,16 +36,25 @@
   color: #00aaff;
 }
 
+/* Mobile */
 @media (max-width: 600px) {
   .navbar {
     flex-direction: column;
-    gap: 15px;
-    padding: 18px 20px;
+    gap: 12px;
+    padding: 16px 20px;
+  }
+
+  .navbar h2 {
+    font-size: 22px;
   }
 
   .navbar ul {
-    gap: 18px;
+    gap: 16px;
     flex-wrap: wrap;
     justify-content: center;
+  }
+
+  .navbar a {
+    font-size: 14px;
   }
 }
