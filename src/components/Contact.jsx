@@ -29,13 +29,21 @@ function Contact() {
 
       console.log("SUCCESS:", response.status, response.text);
 
-      alert("Message sent successfully! 🚀");
+      const successMessage = document.querySelector(".form-message");
+
+      successMessage.textContent =
+        "Message sent successfully! 🚀 I'll get back to you soon.";
+      successMessage.className = "form-message success";
 
       form.reset();
     } catch (error) {
       console.error("EmailJS Error:", error);
 
-      alert("Failed to send message. Please try again.");
+      const errorMessage = document.querySelector(".form-message");
+
+      errorMessage.textContent =
+        "Failed to send message. Please try again.";
+      errorMessage.className = "form-message error";
     }
   };
 
@@ -48,7 +56,7 @@ function Contact() {
         viewport={{ once: true }}
         transition={{ duration: 0.7 }}
       >
-        <span className="section-label">GET IN TOUCH</span>
+        <div className="section-label">GET IN TOUCH</div>
 
         <h2>
           Let's <span>Work Together</span>
@@ -81,7 +89,6 @@ function Contact() {
           </p>
 
           <div className="contact-links">
-            {/* Email */}
             <a href="mailto:lohithvepada@gmail.com">
               <span>✉️</span>
 
@@ -91,7 +98,6 @@ function Contact() {
               </div>
             </a>
 
-            {/* GitHub */}
             <a
               href="https://github.com/lohithvepada-prog"
               target="_blank"
@@ -105,7 +111,6 @@ function Contact() {
               </div>
             </a>
 
-            {/* LinkedIn */}
             <a
               href="https://www.linkedin.com/in/lohithvepada"
               target="_blank"
@@ -164,6 +169,8 @@ function Contact() {
           >
             Send Message <span>↗</span>
           </motion.button>
+
+          <div className="form-message"></div>
         </form>
       </motion.div>
     </section>
