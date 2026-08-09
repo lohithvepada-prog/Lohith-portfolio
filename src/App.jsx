@@ -1,4 +1,4 @@
-import Profile from "./components/Profile";
+import Profile from "./components/profile";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
