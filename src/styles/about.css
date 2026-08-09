@@ -1,53 +1,135 @@
-.about {
-  width: 100%;
-  padding: 80px 20px;
-  text-align: center;
+.about-section {
+  padding: 110px 8%;
+  background: #080b10;
   box-sizing: border-box;
 }
 
-.about h2 {
-  font-size: 40px;
-  margin-bottom: 20px;
+.about-section > h2 {
+  text-align: center;
+  margin: 0 0 70px;
+
+  font-size: clamp(40px, 5vw, 58px);
+  color: #f5f7fa;
 }
 
-.about p {
-  max-width: 700px;
+.about-section > h2 span {
+  color: #00d9ff;
+}
+
+.about-container {
+  max-width: 1200px;
   margin: 0 auto;
-  font-size: 20px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+
+  align-items: center;
+}
+
+.about-text {
+  position: relative;
+  padding-left: 28px;
+}
+
+.about-text::before {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  width: 2px;
+  height: 100%;
+
+  background: #00d9ff;
+  box-shadow: 0 0 15px rgba(0, 217, 255, 0.5);
+}
+
+.about-text p {
+  margin: 0 0 28px;
+
+  color: #a8b3c5;
+  font-size: 17px;
+  line-height: 1.9;
+}
+
+.about-text p:last-child {
+  margin-bottom: 0;
+}
+
+.about-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about-card {
+  padding: 28px;
+
+  background: #0d131c;
+  border: 1px solid #1d2a39;
+  border-radius: 16px;
+
+  transition:
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.about-card:hover {
+  box-shadow: 0 15px 40px rgba(0, 217, 255, 0.08);
+}
+
+.about-icon {
+  font-size: 30px;
+  margin-bottom: 14px;
+}
+
+.about-card h3 {
+  margin: 0 0 10px;
+
+  color: #00d9ff;
+  font-size: 21px;
+}
+
+.about-card p {
+  margin: 0;
+
+  color: #8fa0b5;
   line-height: 1.7;
+  font-size: 15px;
 }
 
-
-/* Mobile */
-@media (max-width: 768px) {
-  .about {
-    padding: 50px 20px;
+@media (max-width: 900px) {
+  .about-section {
+    padding: 80px 25px;
   }
 
-  .about h2 {
-    font-size: 28px;
-    margin-bottom: 15px;
+  .about-container {
+    grid-template-columns: 1fr;
+    gap: 50px;
   }
 
-  .about p {
-    width: 100%;
-    max-width: 350px;
-    font-size: 16px;
-    line-height: 1.6;
+  .about-text {
+    padding-left: 22px;
   }
 }
+
 @media (max-width: 600px) {
-  .about {
-    padding: 50px 20px;
+  .about-section {
+    padding: 70px 20px;
   }
 
-  .about h2 {
-    font-size: 28px;
-    margin-bottom: 15px;
+  .about-section > h2 {
+    margin-bottom: 45px;
   }
 
-  .about p {
-    font-size: 16px;
-    line-height: 1.6;
+  .about-text p {
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  .about-card {
+    padding: 22px;
   }
 }

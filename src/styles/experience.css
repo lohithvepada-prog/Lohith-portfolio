@@ -1,0 +1,162 @@
+.experience-section {
+  padding: 110px 8%;
+  background: #05080d;
+  color: #e8f0f7;
+}
+
+.experience-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 80px;
+}
+
+.experience-header > span {
+  color: #00d9ff;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.experience-header h2 {
+  margin: 15px 0;
+  font-size: 48px;
+  font-weight: 800;
+}
+
+.experience-header h2 strong {
+  color: #00d9ff;
+}
+
+.experience-header p {
+  color: #91a4b8;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.timeline {
+  position: relative;
+  max-width: 950px;
+  margin: auto;
+  padding-left: 30px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    #00d9ff,
+    #164255,
+    transparent
+  );
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 45px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -29px;
+  top: 28px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #00d9ff;
+  box-shadow: 0 0 18px rgba(0, 217, 255, 0.8);
+}
+
+.timeline-card {
+  padding: 30px;
+  border: 1px solid #1c2d3d;
+  border-radius: 18px;
+  background: #0a1018;
+  transition: 0.35s ease;
+}
+
+.timeline-card:hover {
+  border-color: #00d9ff;
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 217, 255, 0.07);
+}
+
+.timeline-type {
+  color: #00d9ff;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.timeline-card h3 {
+  margin: 12px 0 6px;
+  font-size: 27px;
+}
+
+.timeline-card h4 {
+  margin: 0 0 18px;
+  color: #9db1c5;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.timeline-card p {
+  color: #91a4b8;
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+.timeline-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 22px;
+}
+
+.timeline-tech span,
+.education-meta span {
+  padding: 8px 12px;
+  border: 1px solid #203447;
+  border-radius: 8px;
+  background: #0d151f;
+  color: #b6c7d8;
+  font-size: 13px;
+}
+
+.education-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+@media (max-width: 700px) {
+  .experience-section {
+    padding: 80px 20px;
+  }
+
+  .experience-header h2 {
+    font-size: 36px;
+  }
+
+  .timeline {
+    padding-left: 25px;
+  }
+
+  .timeline-dot {
+    left: -24px;
+  }
+
+  .timeline-card {
+    padding: 22px;
+  }
+
+  .timeline-card h3 {
+    font-size: 23px;
+  }
+}

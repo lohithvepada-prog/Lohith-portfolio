@@ -1,3 +1,4 @@
+import Profile from "./components/Profile";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -10,11 +11,19 @@ function App() {
   return (
     <>
       <Navbar />
+
       <Hero />
+
+      <Profile />
+
       <About />
+
       <Skills />
+
       <Projects />
+
       <Contact />
+
       <Footer />
     </>
   );
